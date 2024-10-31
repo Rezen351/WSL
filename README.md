@@ -13,3 +13,10 @@ Langkah-langkah untuk menginstal dan menjalankan proyek:
     wsl --import <Distribution> <path> ubuntu.tar
 
 '''
+2. **Connect Google Internet**:
+ ```bash
+   sudo nano /etc/resolv.conf
+   nameserver 8.8.8.8
+   nameserver 8.8.4.4
+
+'''
