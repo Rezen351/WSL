@@ -20,3 +20,10 @@ Langkah-langkah untuk menginstal dan menjalankan proyek:
    nameserver 8.8.4.4
 
 '''
+Get-ChildItem "C:\" | Where-Object { $_.PSIsContainer } | ForEach-Object {
+>>     $size = (Get-ChildItem -Path $_.FullName -Recurse -File | Measure-Object -Property Length -Sum).Sum
+>>     [PSCustomObject]@{
+>>         FolderName = $_.Name
+>>         SizeMB     = "{0:N2}" -f ($size / 1MB)
+>>     }
+>> } | Format-Table -AutoSize
